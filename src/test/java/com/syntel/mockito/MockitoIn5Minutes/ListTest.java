@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import java.util.List;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class ListTest {
 
@@ -24,6 +25,13 @@ public class ListTest {
 		when(list.get(0)).thenReturn("stephen");
 		assertEquals("stephen", list.get(0));
 		assertEquals(null, list.get(1));
+	}
+	public void testListAnyGetMethod() {
+
+		List list = mock(List.class);
+		when(list.get(Mockito.anyInt())).thenReturn("stephenbaby");
+		assertEquals("stephenbaby", list.get(0));
+		assertEquals("stephenbaby", list.get(1));
 	}
 
 }
